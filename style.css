@@ -22,7 +22,7 @@ h1,
 h2,
 h3,
 h4 {
-  color: #fff;
+  color: white;
 }
 
 a {
@@ -36,6 +36,11 @@ p {
 
 img {
   width: 100%;
+}
+
+li {
+  list-style:none; 
+
 }
 
 .showcase {
@@ -261,6 +266,8 @@ img {
   margin: auto;
   overflow: hidden;
   padding: 0 2rem;
+
+  color: white;
 }
 
 /* Text Styles */
@@ -353,6 +360,7 @@ img {
   .showcase-content h1 {
     font-size: 3.7rem;
     line-height: 1;
+    color: white;
   }
 
   .showcase-content p {
@@ -393,6 +401,7 @@ img {
   .showcase-content h1 {
     font-size: 2.5rem;
     line-height: 1;
+    color: white;
   }
 
   .showcase-content p {
@@ -491,8 +500,15 @@ img {
   }
 }
 
-li::marker {
-  content: "📂";
+ul li::marker {
+  content: "📂 ";
+  /* list-style-image: url(/img/love.gif); */
   font-size: 1.2em;
+
+}
+
+header .hero-link {
+  list-style: none;
   color: white;
 }
+
