@@ -2,140 +2,110 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>movies hub</title>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>movies hub</title>
+        <link rel="stylesheet" href="style.css" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+        <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
 </head>
 
+<style>
+        .card > img{
+                aspect-ratio: 2/3;
+        }
+
+        .card{
+                aspect-ratio: 3/3;
+
+        }
+</style>
+
 <body>
-    <header class="showcase">
-        <div class="showcase-top">
-            <img src="/img/logo.png" alt="" />
-            <a href="#" class="btn btn-rounded">Sign In</a>
-        </div>
-        <div class="showcase-content">
-            <h1>See what's next</h1>
-            <p>Watch anywhere. Watch Anytime</p>
-            <!-- <a href="#" class="btn btn-xl">AI Movie Bot <i class="fas fa-chevron-right btn-icon"></i></a> -->
-            <li style="width: 100%;" class="bg-transparent py-1 mx-5 hero-link"><a href="https://telegram.me/movieesmania"
-                    target="_blank">𝘼𝙞 𝙈𝙤𝙫𝙞𝙚𝙨 Ⓥ² 𝙁𝙞𝙣𝙙𝙚𝙧 𝘽𝙤𝙩</a></li>
-
-        </div>
-    </header>
-
-    <div class="tabs">
-        <div class="container my-5 text-start">
-            <div class="row gy-4">
-                <div class="col-lg-4 col-md-6 col-sm-12">
-                    <ul class="list-group">
-                        <h1>New Release ✨</h1>
-                        <li style="width: 100%;" class="bg-transparent py-1 mx-5"> <a
-                                href="https://telegram.me/movieesmania" target="_blank">Lorem, ipsum</a></li>
-                        <li style="width: 100%;" class="bg-transparent py-1 mx-5"><a
-                                href="https://telegram.me/movieesmania" target="_blank">Lorem, ipsum</a></li>
-                        <li style="width: 100%;" class="bg-transparent py-1 mx-5"> <a
-                                href="https://telegram.me/movieesmania" target="_blank">Lorem, ipsum</a></li>
-                        <li style="width: 100%;" class="bg-transparent py-1 mx-5"> <a
-                                href="https://telegram.me/movieesmania" target="_blank">Lorem, ipsum</a></li>
-                        <li style="width: 100%;" class="bg-transparent py-1 mx-5"> <a
-                                href="https://telegram.me/movieesmania" target="_blank">Lorem, ipsum</a></li>
-                        <li style="width: 100%;" class="bg-transparent py-1 mx-5"> <a
-                                href="https://telegram.me/movieesmania" target="_blank">Lorem, ipsum</a></li>
-
+        <header class="showcase">
+                <div class="showcase-top">
+                        <img src="/img/logo.png" alt="" />
+                        <a href="#" class="btn btn-rounded">Sign In</a>
+                </div>
+                <div class="showcase-content">
+                        <h1>See what's next</h1>
+                        <p>Watch anywhere. Watch Anytime</p>
+                        <!-- <a href="#" class="btn btn-xl">AI Movie Bot <i class="fas fa-chevron-right btn-icon"></i></a> -->
+                        <li style="width: 100%;" class="bg-transparent py-1 mx-5 hero-link"><a
+                                        href="https://telegram.me/movieesmania" target="_blank">𝘼𝙞 𝙈𝙤𝙫𝙞𝙚𝙨 Ⓥ²
+                                        𝙁𝙞𝙣𝙙𝙚𝙧 𝘽𝙤𝙩</a></li>
 
                 </div>
-                <div class="col-lg-4 col-md-6 col-sm-12">
-                    <ul class="list-group">
-                        <h1>Bollywood 🎬</h1>
-                        <li style="width: 100%;" class="bg-transparent py-1 mx-5"> <a
-                                href="https://telegram.me/movieesmania" target="_blank">Lorem, ipsum</a></li>
-                        <li style="width: 100%;" class="bg-transparent py-1 mx-5"><a
-                                href="https://telegram.me/movieesmania" target="_blank">Lorem, ipsum</a></li>
-                        <li style="width: 100%;" class="bg-transparent py-1 mx-5"> <a
-                                href="https://telegram.me/movieesmania" target="_blank">Lorem, ipsum</a></li>
-                        <li style="width: 100%;" class="bg-transparent py-1 mx-5"> <a
-                                href="https://telegram.me/movieesmania" target="_blank">Lorem, ipsum</a></li>
-                        <li style="width: 100%;" class="bg-transparent py-1 mx-5"> <a
-                                href="https://telegram.me/movieesmania" target="_blank">Lorem, ipsum</a></li>
-                        <li style="width: 100%;" class="bg-transparent py-1 mx-5"> <a
-                                href="https://telegram.me/movieesmania" target="_blank">Lorem, ipsum</a></li>
+        </header>
 
-
+        <div class="tabs">
+                <div class="container">
+                        <h1 class="my-5">Top Searches</h1>
+                        <div id="movie_display" class=" row"></div>
                 </div>
-                <div class="col-lg-4 col-md-6 col-sm-12">
-                    <ul class="list-group">
-                        <h1>Hollywood ⭐</h1>
-                        <li style="width: 100%;" class="bg-transparent py-1 mx-5"> <a
-                                href="https://telegram.me/movieesmania" target="_blank">Lorem, ipsum</a></li>
-                        <li style="width: 100%;" class="bg-transparent py-1 mx-5"><a
-                                href="https://telegram.me/movieesmania" target="_blank">Lorem, ipsum</a></li>
-                        <li style="width: 100%;" class="bg-transparent py-1 mx-5"> <a
-                                href="https://telegram.me/movieesmania" target="_blank">Lorem, ipsum</a></li>
-                        <li style="width: 100%;" class="bg-transparent py-1 mx-5"> <a
-                                href="https://telegram.me/movieesmania" target="_blank">Lorem, ipsum</a></li>
-                        <li style="width: 100%;" class="bg-transparent py-1 mx-5"> <a
-                                href="https://telegram.me/movieesmania" target="_blank">Lorem, ipsum</a></li>
-                        <li style="width: 100%;" class="bg-transparent py-1 mx-5"> <a
-                                href="https://telegram.me/movieesmania" target="_blank">Lorem, ipsum</a></li>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-12">
-                    <ul class="list-group">
-                        <h1>South 🥷🏿</h1>
-                        <li style="width: 100%;" class="bg-transparent py-1 mx-5"> <a
-                                href="https://telegram.me/movieesmania" target="_blank">Lorem, ipsum</a></li>
-                        <li style="width: 100%;" class="bg-transparent py-1 mx-5"><a
-                                href="https://telegram.me/movieesmania" target="_blank">Lorem, ipsum</a></li>
-                        <li style="width: 100%;" class="bg-transparent py-1 mx-5"> <a
-                                href="https://telegram.me/movieesmania" target="_blank">Lorem, ipsum</a></li>
-                        <li style="width: 100%;" class="bg-transparent py-1 mx-5"> <a
-                                href="https://telegram.me/movieesmania" target="_blank">Lorem, ipsum</a></li>
-                        <li style="width: 100%;" class="bg-transparent py-1 mx-5"> <a
-                                href="https://telegram.me/movieesmania" target="_blank">Lorem, ipsum</a></li>
-                        <li style="width: 100%;" class="bg-transparent py-1 mx-5"> <a
-                                href="https://telegram.me/movieesmania" target="_blank">Lorem, ipsum</a></li>
-                    </ul>
-                </div>
-            </div>
-
         </div>
 
-    </div>
-
-    <footer class="footer">
-        <div class="footer-cols">
-            <ul>
-                <li><a href="#">FAQ</a></li>
-                <li><a href="#">Investor Relations</a></li>
-                <li><a href="#">Ways To Watch</a></li>
-                <li><a href="#">Corporate Information</a></li>
-                <li><a href="#">Netflix Originals</a></li>
-            </ul>
-            <ul>
-                <li><a href="#">Help Center</a></li>
-                <li><a href="#">Jobs</a></li>
-                <li><a href="#">Terms Of Use</a></li>
-                <li><a href="#">Contact Us</a></li>
-            </ul>
-            <ul>
-                <li><a href="#">Account</a></li>
-                <li><a href="#">Redeem Gift Cards</a></li>
-                <li><a href="#">Privacy</a></li>
-                <li><a href="#">Speed Test</a></li>
-            </ul>
-            <ul>
-                <li><a href="#">Media Center</a></li>
-                <li><a href="#">Buy Gift Cards</a></li>
-                <li><a href="#">Cookie Preferences</a></li>
-                <li><a href="#">Legal Notices</a></li>
-            </ul>
-        </div>
-    </footer>
+        <footer class="footer">
+                <div class="footer-cols">
+                        <ul>
+                                <li><a href="#">FAQ</a></li>
+                                <li><a href="#">Investor Relations</a></li>
+                                <li><a href="#">Ways To Watch</a></li>
+                                <li><a href="#">Corporate Information</a></li>
+                                <li><a href="#">Netflix Originals</a></li>
+                        </ul>
+                        <ul>
+                                <li><a href="#">Help Center</a></li>
+                                <li><a href="#">Jobs</a></li>
+                                <li><a href="#">Terms Of Use</a></li>
+                                <li><a href="#">Contact Us</a></li>
+                        </ul>
+                        <ul>
+                                <li><a href="#">Account</a></li>
+                                <li><a href="#">Redeem Gift Cards</a></li>
+                                <li><a href="#">Privacy</a></li>
+                                <li><a href="#">Speed Test</a></li>
+                        </ul>
+                        <ul>
+                                <li><a href="#">Media Center</a></li>
+                                <li><a href="#">Buy Gift Cards</a></li>
+                                <li><a href="#">Cookie Preferences</a></li>
+                                <li><a href="#">Legal Notices</a></li>
+                        </ul>
+                </div>
+        </footer>
 </body>
+<script src="/index.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+        var movie_display = document.getElementById("movie_display");
+        console.log("started!!")
+        movie_display.innerHTML = " ";
+        movies.forEach((ele) => {
 
-<script src="/script.js"></script>
+                console.log(`${ele.title} </br>`);
+                movie_display.innerHTML += ` 
+      <div class="col-lg-3 col-md-6 my-2">
+          <div class="card bg-dark text-white p-3 border-rounded-5">
+              <img src="${ele.posterurl}" class="card-img-top img-fluid" alt="No Poster Available" />
+              <div class="card-body">
+                <span class="card-title h-3">🎬 ${ele.title}</span>
+                <p class="card-title">${ele.year} | ⭐ ${ele.ratings[1]}</p>
+           
+                  <li class="card-title mono py-3">${ele.genres}</li>
+                  <a href="https://giphy.com/explore/download" target="_blank" class="btn btn-primary"><i class="ri-download-2-fill"></i> Download</a>
+                  </div>
+                  </div>
+                  </div>
+                  
+                  `;
+
+        });
+
+        
+
+
+
+</script>
 
 </html>
