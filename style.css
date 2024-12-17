@@ -512,3 +512,8 @@ header .hero-link {
   color: white;
 }
 
+
+  .modal-dialog {
+    max-width: 80% !important; 
+    margin: 1.75rem auto;
+  }
