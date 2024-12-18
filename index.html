@@ -28,12 +28,7 @@
                 </div>
                 <div class="showcase-content">
                         <h1>See what's next</h1>
-                        <p>Watch anywhere. Watch Anytime</p>
-                        <!-- <a href="#" class="btn btn-xl">AI Movie Bot <i class="fas fa-chevron-right btn-icon"></i></a> -->
-                        <li style="width: 100%" class="bg-transparent py-1 mx-5 hero-link">
-                                <a href="https://telegram.me/movieesmania" target="_blank">𝘼𝙞 𝙈𝙤𝙫𝙞𝙚𝙨 Ⓥ²
-                                        𝙁𝙞𝙣𝙙𝙚𝙧 𝘽𝙤𝙩</a>
-                        </li>
+                        <p class="poppins">Watch anywhere. Watch Anytime</p>
 
                         <div class="group">
                                 <svg viewBox="0 0 24 24" aria-hidden="true" class="search-icon">
@@ -143,9 +138,69 @@
         }
 
         var movie_display = document.getElementById("movie_display");
-        console.log("started!!");
+
+
+
+        let search = document.getElementById("search");
+
+        search.addEventListener("keyup", function (e){
+                let val = e.target.value.toUpperCase();
+                let searchData = movies.filter(
+                        (ele) =>
+                                !ele.title.toUpperCase().indexOf(val) ||
+                                !ele.actors[0].toUpperCase().indexOf(val) ||
+                                !ele.genres[0].toUpperCase().indexOf(val) 
+                               
+                );
+
+               showall(searchData)
+
+
+
+
+        });
+
+
+
+
+        function showall(searchMovies) {
+
+
+                movie_display.innerHTML = " ";
+
+
+                searchMovies.map((ele) => {
+                        // console.log(`${ele.title} </br>`);
+                        movie_display.innerHTML += ` 
+      <div class="col-lg-3 col-md-6 my-2">
+          <div class="card bg-dark text-white p-3 border-rounded-5">
+              <img src="${ele.posterurl}" class="card-img-top img-fluid" alt="No Poster Available" />
+              <div class="card-body">
+                <span class="card-title h-3">🎬 ${ele.title}</span>
+                <p class="card-title">${ele.year} | ⭐ ${ele.ratings[1]}</p>
+           
+                  <li class="card-title mono py-3">${ele.genres}</li>
+                  <button onclick="man('${ele.title}')" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalToggle" role="button"><i class="ri-download-2-fill"></i> 𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱</button>
+                  </div>
+                  </div>
+                  </div>
+                  
+                  `;
+                });
+        }
+
+
+
+
+
+
+
+
+
         movie_display.innerHTML = " ";
-        movies.forEach((ele) => {
+
+
+        movies.map((ele) => {
                 // console.log(`${ele.title} </br>`);
                 movie_display.innerHTML += ` 
       <div class="col-lg-3 col-md-6 my-2">
@@ -164,17 +219,6 @@
                   `;
         });
 
-        let search = document.getElementById("search");
-        search.addEventListener("keyup", function (e) {
-                let val = e.target.value.toUpperCase();
-                let searchData = movies.filter(
-                        (ele) =>
-                                !ele.title.toUpperCase().indexOf(val) ||
-                                !ele.actors[0].toUpperCase().indexOf(val) ||
-                                !ele.genres[0].toUpperCase().indexOf(val)
-                );
-                console.log(searchData);
-        });
 </script>
 
 </html>
