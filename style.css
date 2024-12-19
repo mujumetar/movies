@@ -9,7 +9,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: poppins;
+
 }
 
 body {
@@ -30,10 +30,10 @@ a {
   color: #fff;
   text-decoration: none;
 }
-
+/* 
 p {
   margin: 0.5rem 0;
-}
+} */
 
 img {
   width: 100%;
@@ -118,7 +118,7 @@ li {
 /* Tabs */
 .tabs {
   background: var(--dark-color);
-  padding-top: 1rem;
+  padding-top: 10rem;
   border-bottom: 3px solid #3d3d3d;
   border-right: none;
 }
@@ -130,8 +130,7 @@ li {
 }
 
 .tabs p {
-  font-size: 1.2rem;
-  padding-top: 0.5rem;
+  /* padding-top: 1rem; */
 }
 
 .tabs .container > div {
@@ -364,7 +363,7 @@ li {
   }
 
   .showcase-content p {
-    font-size: 1.5rem;
+    /* font-size: 1.5rem; */
   }
 
   .footer .footer-cols {
@@ -501,9 +500,9 @@ li {
 }
 
 ul li::marker {
-  content: "📂 ";
+  content: "• ";
   /* list-style-image: url(/img/love.gif); */
-  font-size: 1.2em;
+  /* font-size: 1.2em; */
 }
 
 header .hero-link {
@@ -511,12 +510,7 @@ header .hero-link {
   color: white;
 }
 
-.modal-dialog {
-  max-width: 80% !important;
-  margin: 1.75rem auto;
-}
 
-/* From Uiverse.io by LightAndy1 */
 .group {
   display: flex;
   line-height: 20px;
@@ -565,4 +559,47 @@ header .hero-link {
   height: 1rem;
   pointer-events: none;
   z-index: 1;
+}
+.card  img {
+  aspect-ratio: 2/3;
+}
+
+.card {
+  aspect-ratio: 2/3;
+  height: 100%;
+
+}
+
+.modal-dialog {
+  position: relative;
+  width: 100% !important;
+  margin: auto !important;
+  pointer-events: none;
+  /* margin: 1.75rem 20px; */
+}
+
+ /* width */
+ ::-webkit-scrollbar {
+  width: 3px;
+}
+
+::-webkit-scrollbar:hover {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px gainsboro;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: blueviolet;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: yellowgreen;
 }

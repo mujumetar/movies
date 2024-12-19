@@ -10,16 +10,6 @@
         <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
 </head>
 
-<style>
-        .card>img {
-                aspect-ratio: 2/3;
-        }
-
-        .card {
-                aspect-ratio: 3/3;
-        }
-</style>
-
 <body>
         <header class="showcase">
                 <div class="showcase-top">
@@ -51,20 +41,20 @@
                         <div id="movie_display" class="row"></div>
                 </div>
 
-                <div class="modal fade text-white" id="exampleModalToggle" aria-hidden="true"
+                <div class="modal fade text-white my-1" id="exampleModalToggle" aria-hidden="true"
                         aria-labelledby="exampleModalToggleLabel" tabindex="-1">
-                        <div class="modal-dialog modal-dialog-centered w-100">
-                                <div class="modal-content bg-dark border-white">
+                        <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered  w-100 bg-transparent">
+                                <div class="modal-content bg-dark">
                                         <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalToggleLabel">Modal 1</h5>
+                                                <h5 class="modal-title" id="exampleModalToggleLabel">Loading</h5>
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                         aria-label="Close"></button>
                                         </div>
-                                        <div class="modal-body">error</div>
-                                        <div class="modal-footer">
+                                        <div class="modal-body"></div>
+                                        <div class="modal-footer ">
                                                 <button class="btn btn-primary" data-bs-target="#exampleModalToggle2"
                                                         data-bs-toggle="modal" data-bs-dismiss="modal">
-                                                        Download
+                                                        ...
                                                 </button>
                                         </div>
                                 </div>
@@ -112,52 +102,49 @@
                 onlmove.map((ele) => {
                         document.querySelector(
                                 ".modal-footer"
-                        ).innerHTML = `<a class="btn btn-primary" href="https://telegram.me/movieesmania" > Download </a>`;
-
+                        ).innerHTML = `<a class="btn btn-primary" href="https://telegram.me/movieesmania" target="_blank"> Download </a>`;
                         document.querySelector(
                                 ".modal-header"
                         ).innerHTML = `<h5 class="modal-title" id="exampleModalToggleLabel">🎬 ${ele.title}</h5>`;
-
                         document.querySelector(".modal-body").innerHTML = `
-      
-        <img src="${ele.posterurl}" class ="d-flex justify-content-center img-fluid" style="width:30%;" />
+        <img src="${ele.posterurl}" class ="d-flex justify-content-center img-fluid" style="width:40%;" />
         <hr>
         <p class="py-1"><b>Ratings : </b>⭐ ${ele.ratings[1]}</p>
         <hr>
         <p class="py-1"><b>Release Date : </b>📢 ${ele.releaseDate}</p>
         <hr>
-        <p class="py-1"><b>Genre : </b>📢 ${ele.releaseDate}</p>
+        <p class="py-1"><b>Genre : </b>🎭 ${ele.genres[0]}, ${ele.genres[1]}, ${ele.genres[2]}</p>
         <hr>
-        <p class="py-1"><b>Actors : </b></br>${ele.actors[0]}</p>
-        <p>${ele.actors[1]}</p>
-        <p>${ele.actors[2]}</p>
+        <p class="py-1"><b>Actors : 🕴️</b></p>
+        <ul>
+        <li> ${ele.actors[0]}</li>
+        <li> ${ele.actors[1]}</li>
+        <li> ${ele.actors[2]}</li>
+        </ul>
+       
 
         <h2 class="py-2">StoryLine 📖</h2>
         <p>${ele.storyline}</p>`;
                 });
+
+
         }
 
         var movie_display = document.getElementById("movie_display");
 
-
-
         let search = document.getElementById("search");
 
-        search.addEventListener("keyup", function (e){
+        search.addEventListener("keyup", function (e) {
                 let val = e.target.value.toUpperCase();
                 let searchData = movies.filter(
                         (ele) =>
                                 !ele.title.toUpperCase().indexOf(val) ||
                                 !ele.actors[0].toUpperCase().indexOf(val) ||
-                                !ele.genres[0].toUpperCase().indexOf(val) 
-                               
+                                !ele.genres[0].toUpperCase().indexOf(val)
+
                 );
 
-               showall(searchData)
-
-
-
-
+                showall(searchData)
         });
 
 
@@ -170,21 +157,19 @@
 
 
                 searchMovies.map((ele) => {
-                        // console.log(`${ele.title} </br>`);
+
                         movie_display.innerHTML += ` 
-      <div class="col-lg-3 col-md-6 my-2">
-          <div class="card bg-dark text-white p-3 border-rounded-5">
+                <div class="col-lg-3 col-md-6  my-2">
+                        <div class="card bg-dark text-white p-3 border-rounded-5">
+                                <a onclick="man('${ele.title}')"  class="btn btn-primary text-decoration-none" data-bs-toggle="modal" data-bs-target="#exampleModalToggle" >
               <img src="${ele.posterurl}" class="card-img-top img-fluid" alt="No Poster Available" />
+              </a>
               <div class="card-body">
                 <span class="card-title h-3">🎬 ${ele.title}</span>
                 <p class="card-title">${ele.year} | ⭐ ${ele.ratings[1]}</p>
-           
-                  <li class="card-title mono py-3">${ele.genres}</li>
-                  <button onclick="man('${ele.title}')" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalToggle" role="button"><i class="ri-download-2-fill"></i> 𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱</button>
                   </div>
                   </div>
                   </div>
-                  
                   `;
                 });
         }
@@ -201,24 +186,26 @@
 
 
         movies.map((ele) => {
-                // console.log(`${ele.title} </br>`);
                 movie_display.innerHTML += ` 
-      <div class="col-lg-3 col-md-6 my-2">
-          <div class="card bg-dark text-white p-3 border-rounded-5">
+             <div class="col-lg-3 col-md-6  my-2">
+                        <div class="card bg-dark text-white p-3 border-rounded-5">
+                                <a onclick="man('${ele.title}')"  class="btn btn-primary text-decoration-none bg-dark border-0" data-bs-toggle="modal" data-bs-target="#exampleModalToggle" >
               <img src="${ele.posterurl}" class="card-img-top img-fluid" alt="No Poster Available" />
+              </a>
               <div class="card-body">
                 <span class="card-title h-3">🎬 ${ele.title}</span>
                 <p class="card-title">${ele.year} | ⭐ ${ele.ratings[1]}</p>
            
-                  <li class="card-title mono py-3">${ele.genres}</li>
-                  <button onclick="man('${ele.title}')" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalToggle" role="button"><i class="ri-download-2-fill"></i> 𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱</button>
+                 
                   </div>
                   </div>
                   </div>
-                  
                   `;
         });
 
 </script>
 
 </html>
+
+
+<!-- data-bs-toggle="modal" data-bs-target="#exampleModalToggle" -->
