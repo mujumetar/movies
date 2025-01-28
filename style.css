@@ -47,7 +47,7 @@ li {
   width: 100%;
   height: 93vh;
   position: relative;
-  background: url("https://i.ibb.co/vXqDmnh/background.jpg") no-repeat center
+  background: url("https://wallpapercave.com/wp/wp1945898.jpg") no-repeat center
     center/cover;
 }
 
@@ -118,7 +118,6 @@ li {
 /* Tabs */
 .tabs {
   background: var(--dark-color);
-  padding-top: 10rem;
   border-bottom: 3px solid #3d3d3d;
   border-right: none;
 }
@@ -129,9 +128,6 @@ li {
   text-align: center;
 }
 
-.tabs p {
-  /* padding-top: 1rem; */
-}
 
 .tabs .container > div {
   padding: 1.5rem 0;
@@ -425,78 +421,7 @@ li {
     text-align: center;
   }
 
-  .movie-card {
-    position: relative;
-    width: 320px;
-    height: 450px;
-    background: #fff;
-    border-radius: 20px;
-    overflow: hidden;
-    margin: 10px 0;
-    color: #fff;
-  }
 
-  .movie-card .poster {
-    position: relative;
-    overflow: hidden;
-  }
-
-  .movie-card .poster::before {
-    content: "";
-    position: absolute;
-    bottom: -180px;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(0deg, #1064a6 50%, transparent);
-    transition: 0.5s;
-    z-index: 1;
-  }
-
-  .movie-card:hover .poster::before {
-    bottom: 0px;
-  }
-
-  .movie-card .poster img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: 0.5s;
-  }
-
-  .movie-card:hover .poster img {
-    transform: translateY(-50px);
-    filter: blur(5px);
-  }
-
-  .movie-card .details {
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    align-items: start;
-    text-align: start;
-    width: 100%;
-    bottom: -120px;
-    transition: 0.5s;
-    padding: 10px;
-    z-index: 999;
-    transition: 0.5s;
-  }
-
-  .movie-card:hover .details {
-    bottom: 0;
-  }
-
-  .movie-card .tags span {
-    border-radius: 5px;
-    background: blue;
-    padding: 4px;
-    margin: 0 5px;
-  }
-
-  .movie-card .details .tags span:nth-child(2) {
-    background: orange;
-  }
 }
 
 ul li::marker {
@@ -566,7 +491,7 @@ header .hero-link {
 
 .card {
   aspect-ratio: 2/3;
-  height: 100%;
+  height: fit-content;
 
 }
 

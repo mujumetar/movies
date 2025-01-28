@@ -37,175 +37,26 @@
 
         <div class="tabs">
                 <div class="container">
-                        <h1 class="my-5">Top Searches</h1>
-                        <div id="movie_display" class="row"></div>
+                        <h1 class="my-5">Popular</h1>
+                        <div id="movie_display" class="row g-5">
+
+                        </div>
                 </div>
 
-                <div class="modal fade text-white my-1" id="exampleModalToggle" aria-hidden="true"
-                        aria-labelledby="exampleModalToggleLabel" tabindex="-1">
-                        <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered  w-100 bg-transparent">
-                                <div class="modal-content bg-dark">
-                                        <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalToggleLabel">Loading</h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                        aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-body"></div>
-                                        <div class="modal-footer ">
-                                                <button class="btn btn-primary" data-bs-target="#exampleModalToggle2"
-                                                        data-bs-toggle="modal" data-bs-dismiss="modal">
-                                                        ...
-                                                </button>
-                                        </div>
-                                </div>
-                        </div>
+
+
+                <div class="container" id="pagin">
+
                 </div>
         </div>
 
-        <footer class="footer">
-                <div class="footer-cols">
-                        <ul>
-                                <li><a href="#">FAQ</a></li>
-                                <li><a href="#">Investor Relations</a></li>
-                                <li><a href="#">Ways To Watch</a></li>
-                                <li><a href="#">Corporate Information</a></li>
-                                <li><a href="#">Netflix Originals</a></li>
-                        </ul>
-                        <ul>
-                                <li><a href="#">Help Center</a></li>
-                                <li><a href="#">Jobs</a></li>
-                                <li><a href="#">Terms Of Use</a></li>
-                                <li><a href="#">Contact Us</a></li>
-                        </ul>
-                        <ul>
-                                <li><a href="#">Account</a></li>
-                                <li><a href="#">Redeem Gift Cards</a></li>
-                                <li><a href="#">Privacy</a></li>
-                                <li><a href="#">Speed Test</a></li>
-                        </ul>
-                        <ul>
-                                <li><a href="#">Media Center</a></li>
-                                <li><a href="#">Buy Gift Cards</a></li>
-                                <li><a href="#">Cookie Preferences</a></li>
-                                <li><a href="#">Legal Notices</a></li>
-                        </ul>
-                </div>
+
+
+        <footer class="footer my-5">
+
         </footer>
 </body>
 <script src="/index.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script>
-        function man(title) {
-                let onlmove = movies.filter((ele) => ele.title == title);
-                movie_display.innerHTML = " ";
-
-                onlmove.map((ele) => {
-                        document.querySelector(
-                                ".modal-footer"
-                        ).innerHTML = `<a class="btn btn-primary" href="https://telegram.me/movieesmania" target="_blank"> Download </a>`;
-                        document.querySelector(
-                                ".modal-header"
-                        ).innerHTML = `<h5 class="modal-title" id="exampleModalToggleLabel">🎬 ${ele.title}</h5>`;
-                        document.querySelector(".modal-body").innerHTML = `
-        <img src="${ele.posterurl}" class ="d-flex justify-content-center img-fluid" style="width:40%;" />
-        <hr>
-        <p class="py-1"><b>Ratings : </b>⭐ ${ele.ratings[1]}</p>
-        <hr>
-        <p class="py-1"><b>Release Date : </b>📢 ${ele.releaseDate}</p>
-        <hr>
-        <p class="py-1"><b>Genre : </b>🎭 ${ele.genres[0]}, ${ele.genres[1]}, ${ele.genres[2]}</p>
-        <hr>
-        <p class="py-1"><b>Actors : 🕴️</b></p>
-        <ul>
-        <li> ${ele.actors[0]}</li>
-        <li> ${ele.actors[1]}</li>
-        <li> ${ele.actors[2]}</li>
-        </ul>
-       
-
-        <h2 class="py-2">StoryLine 📖</h2>
-        <p>${ele.storyline}</p>`;
-                });
-
-
-        }
-
-        var movie_display = document.getElementById("movie_display");
-
-        let search = document.getElementById("search");
-
-        search.addEventListener("keyup", function (e) {
-                let val = e.target.value.toUpperCase();
-                let searchData = movies.filter(
-                        (ele) =>
-                                !ele.title.toUpperCase().indexOf(val) ||
-                                !ele.actors[0].toUpperCase().indexOf(val) ||
-                                !ele.genres[0].toUpperCase().indexOf(val)
-
-                );
-
-                showall(searchData)
-        });
-
-
-
-
-        function showall(searchMovies) {
-
-
-                movie_display.innerHTML = " ";
-
-
-                searchMovies.map((ele) => {
-
-                        movie_display.innerHTML += ` 
-                <div class="col-lg-3 col-md-6  my-2">
-                        <div class="card bg-dark text-white p-3 border-rounded-5">
-                                <a onclick="man('${ele.title}')"  class="btn btn-primary text-decoration-none" data-bs-toggle="modal" data-bs-target="#exampleModalToggle" >
-              <img src="${ele.posterurl}" class="card-img-top img-fluid" alt="No Poster Available" />
-              </a>
-              <div class="card-body">
-                <span class="card-title h-3">🎬 ${ele.title}</span>
-                <p class="card-title">${ele.year} | ⭐ ${ele.ratings[1]}</p>
-                  </div>
-                  </div>
-                  </div>
-                  `;
-                });
-        }
-
-
-
-
-
-
-
-
-
-        movie_display.innerHTML = " ";
-
-
-        movies.map((ele) => {
-                movie_display.innerHTML += ` 
-             <div class="col-lg-3 col-md-6  my-2">
-                        <div class="card bg-dark text-white p-3 border-rounded-5">
-                                <a onclick="man('${ele.title}')"  class="btn btn-primary text-decoration-none bg-dark border-0" data-bs-toggle="modal" data-bs-target="#exampleModalToggle" >
-              <img src="${ele.posterurl}" class="card-img-top img-fluid" alt="No Poster Available" />
-              </a>
-              <div class="card-body">
-                <span class="card-title h-3">🎬 ${ele.title}</span>
-                <p class="card-title">${ele.year} | ⭐ ${ele.ratings[1]}</p>
-           
-                 
-                  </div>
-                  </div>
-                  </div>
-                  `;
-        });
-
-</script>
 
 </html>
-
-
-<!-- data-bs-toggle="modal" data-bs-target="#exampleModalToggle" -->
