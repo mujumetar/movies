@@ -1,6 +1,7 @@
 let b_url = `https://api.themoviedb.org/3/`;
 let key = `?api_key=989e5b3786a1011309d985449bb65c5d`;
 let d_endpoint = `discover/movie`;
+let search="e.target.value"
 let lang = "&la&with_original_language=hi";
 let e_gen = `&with_genres=`;
 let genre = "genre/movie/list";
@@ -12,17 +13,16 @@ let display = document.getElementById("movie_display");
 getMovies(api_url);
 function getMovies(api_url) {
   fetch(api_url)
-  .then((res) => {
-    return res.json();
-  })
-  .then((data) => {
-    console.log(data);
-    showall(data.results);
-    pages(data.page);
-  });
+    .then((res) => {
+      return res.json();
+    })
+    .then((data) => {
+      console.log(data);
+      showall(data.results);
+      pages(data.page);
+    });
 }
 genremenu(b_url + genre + key);
-filt(`${ele.id}`)
 
 
 function changePage(p) {
@@ -73,14 +73,28 @@ function genremenu(genres) {
     })
     .then((data) => {
       console.log(data.genres);
+      filt(data.genres)
     });
 }
 
-function filt(id) {
-  console.log(id)
-  data.map((ele) => {
-    filt.innerHTML += `
-    <button class="btn btn-warning"></button>
-`;
+function filt(cata) {
+  cata.map((ele) => {
+    let filt = document.getElementById("filters");
+    filt.innerHTML += ` <button class="btn btn-outline-warning my-2 gen" onclick="catagory(${ele.name})">${ele.name}</button>`;
   });
 }
+
+
+document.getElementById("search").addEventListener("change", function(e){
+  let search = e.target.value;
+  console.log(search)
+  fetch(`https://api.themoviedb.org/3/search/movie?api_key=2254f6a103ea45b2d2965212918395da&query=${search}&page=1`)
+  .then((res) =>{
+      return res.json()
+  })
+  .then((data) =>{
+      console.log(data)
+      showall(data.results)
+      pages(data.page)
+  })
+  })
