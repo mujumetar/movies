@@ -1,9 +1,9 @@
 let b_url = `https://api.themoviedb.org/3/`;
 let key = `?api_key=989e5b3786a1011309d985449bb65c5d`;
 let d_endpoint = `discover/movie`;
-let page = 1;
 let lang = "&la&with_original_language=hi"
-let api_url = b_url + d_endpoint + key + lang;
+let page = 1;
+let api_url = b_url + d_endpoint + key + lang ;
 let display = document.getElementById("movie_display");
 
 getMovies(api_url, page);
