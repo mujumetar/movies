@@ -1,9 +1,12 @@
+let fix_genre = JSON.parse(localStorage.getItem("fix_genre")) || []
+
+
 let b_url = `https://api.themoviedb.org/3/`;
 let key = `?api_key=989e5b3786a1011309d985449bb65c5d`;
 let d_endpoint = `discover/movie`;
-let search="e.target.value"
+let search = "e.target.value";
 let lang = "&la&with_original_language=hi";
-let e_gen = `&with_genres=`;
+let e_gen = `&with_genres=${fix_genre.join(",")}`;
 let genre = "genre/movie/list";
 let p1 = 1;
 let e_page = `&page=`;
@@ -24,9 +27,8 @@ function getMovies(api_url) {
 }
 genremenu(b_url + genre + key);
 
-
 function changePage(p) {
-  let page_url = b_url + d_endpoint + key + lang + e_page + p;
+  let page_url = b_url + d_endpoint + key +e_gen+ lang + e_page + p;
   getMovies(page_url);
   console.log(p);
 }
@@ -58,12 +60,18 @@ function showall(data) {
             <div class="card-body">
                   <h5 class="card-title">${ele.title || ele.original_title}</h5>
                   <p class="card-text">🔥${ele.popularity}</p>
-                  <a class="btn btn-primary">Download</a>
+                  <a class="btn btn-primary" onclick="each_movie(${ele.id})">more</a>
                 </div>
               </div>
         </div>
   `;
   });
+}
+
+
+
+function each_movie(){
+  
 }
 
 function genremenu(genres) {
@@ -73,28 +81,48 @@ function genremenu(genres) {
     })
     .then((data) => {
       console.log(data.genres);
-      filt(data.genres)
+      filt(data.genres);
     });
 }
 
 function filt(cata) {
   cata.map((ele) => {
     let filt = document.getElementById("filters");
-    filt.innerHTML += ` <button class="btn btn-outline-warning my-2 gen" onclick="catagory(${ele.name})">${ele.name}</button>`;
+    filt.innerHTML += ` <button class="btn ${fix_genre.includes(ele.id) ? `btn-light` : `btn-outline-light`} my-2 gen"   onclick="catagory(${ele.id})">${ele.name}</button>`;
   });
 }
 
-
-document.getElementById("search").addEventListener("change", function(e){
+document.getElementById("search").addEventListener("keyup", function (e) {
   let search = e.target.value;
-  console.log(search)
-  fetch(`https://api.themoviedb.org/3/search/movie?api_key=2254f6a103ea45b2d2965212918395da&query=${search}&page=1`)
-  .then((res) =>{
-      return res.json()
-  })
-  .then((data) =>{
-      console.log(data)
-      showall(data.results)
-      pages(data.page)
-  })
-  })
+  console.log(search);
+  fetch(
+    `https://api.themoviedb.org/3/search/movie?api_key=989e5b3786a1011309d985449bb65c5d&query=${search}&page=${p}`
+  )
+    .then((res) => {
+      return res.json();
+    })
+    .then((data) => {
+      console.log(data);
+      showall(data.results);
+      pages(data.page);
+    });
+});
+
+
+function catagory(id) {
+  console.log(id);
+  if(fix_genre.includes(id))
+  {
+    fix_genre.splice(fix_genre.indexOf(id), 1)
+  }
+  else{
+     fix_genre.push(id)
+  }
+  let g_url = b_url + d_endpoint + key + `&with_genres=${id}` +lang;
+  console.log(g_url);
+ 
+  localStorage.setItem("fix_genre", JSON.stringify(fix_genre));
+  getMovies(g_url);
+
+  location.reload()
+}
