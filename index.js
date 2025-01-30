@@ -1,4 +1,5 @@
 let fix_genre = JSON.parse(localStorage.getItem("fix_genre")) || []
+let modal = JSON.parse(localStorage.getItem("each"))
 
 
 let b_url = `https://api.themoviedb.org/3/`;
@@ -70,8 +71,13 @@ function showall(data) {
 
 
 
-function each_movie(){
+function each_movie(id){
   
+  localStorage.setItem("each", JSON.stringify(id));
+  // console.log(.results);
+  document.getElementById("modal").innerHTML = `
+  
+  `;
 }
 
 function genremenu(genres) {
