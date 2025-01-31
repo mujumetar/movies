@@ -101,7 +101,7 @@ document.getElementById("search").addEventListener("keyup", function (e) {
   let search = e.target.value;
   console.log(search);
   fetch(
-    `https://api.themoviedb.org/3/search/movie?api_key=989e5b3786a1011309d985449bb65c5d&query=${search}&page=${p}`
+    `https://api.themoviedb.org/3/search/movie?api_key=989e5b3786a1011309d985449bb65c5d&query=${search}&page=${p1}`
   )
     .then((res) => {
       return res.json();
