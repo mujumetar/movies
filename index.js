@@ -58,7 +58,7 @@ function showall(data) {
             ele.poster_path
           }" class="card-img-top img-fluid" alt="${ele.poster_path}">
           <div class="card-body">
-          <h5 class="card-title">${ele.title || ele.original_title}</h5>
+          <h5 class="card-title text-truncate">${ele.title || ele.original_title}</h5>
           <p class="card-text"> 💖${ele.popularity} | ${ele.release_date}</p>
                   <a class="btn btn-primary" onclick="each_movie(${
                     ele.id
@@ -72,9 +72,7 @@ function showall(data) {
 
 function each_movie(id) {
   localStorage.setItem("each", JSON.stringify(id));
-  document.getElementById("modal").innerHTML = `
-  
-  `;
+ location.href="movie.html"
 }
 
 function genremenu(genres) {
