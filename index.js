@@ -52,14 +52,14 @@ function showall(data) {
   display.innerHTML = " ";
   data.map((ele) => {
     display.innerHTML += `
-          <div class="col-lg-3 col-md-6 col-sm-6" >
-          <div class="card p-3" style="">
+          <div class="col-lg-3 col-md-6 col-6" >
+          <div class="card p-1 p-sm-3" style="">
           <img src="https://image.tmdb.org/t/p/w500${
             ele.poster_path
           }" class="card-img-top img-fluid" alt="${ele.poster_path}">
           <div class="card-body">
           <h5 class="card-title text-truncate">${ele.title || ele.original_title}</h5>
-          <p class="card-text"> 💖${ele.popularity} | ${ele.release_date}</p>
+          <p class="card-text"> 💖${ele.popularity}</p>
                   <a class="btn btn-primary" onclick="each_movie(${
                     ele.id
                   })">more</a>
