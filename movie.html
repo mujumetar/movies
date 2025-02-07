@@ -13,13 +13,26 @@
 <body>
     <div id="containerx" class="container-fluid">
         <div id="hero">
-
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-6 border " id="hero-poster">
+                        <img src="" alt="">
+                        hii
+                    </div>
+                    <div class="col-lg-8 col-6 border">
+                        hoooo
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
 </body>
 
 <script src="index.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
 <script>
     let m_id = JSON.parse(localStorage.getItem("each"));
     console.log(m_id);
@@ -34,27 +47,30 @@
             console.log(data);
 
 
-            let main = document.getElementById("containerx").innerHTML = `
-    <div class="container" style="height: 60vh; background: url(${`https://image.tmdb.org/t/p/w1280` + data.backdrop_path}),linear-gradient(to right, rgba(10.5, 52.5, 94.5, 1) calc((50vw - 170px) - 340px), rgba(10.5, 52.5, 94.5, 0.84) 50%, rgba(10.5, 52.5, 94.5, 0.84) 100%);  background-repeat: no-repeat;  background-blend-mode:overlay;"  >
-    </div>
-  `
+//             let main = document.getElementById("containerx").innerHTML = `
+//     <div class="container z-3" style="height: 80vh; background: url(${`https://image.tmdb.org/t/p/w1280` + data.backdrop_path}),linear-gradient(to right, rgba(10.5, 52.5, 94.5, 1) calc((50vw - 170px) - 340px), rgba(10.5, 52.5, 94.5, 0.84) 50%, rgba(10.5, 52.5, 94.5, 0.84) 100%);  background-repeat: repeat;  background-blend-mode:overlay;"  >
+//     </div>
+//   `
 
             let hero_img = document.getElementById("hero")
             hero_img.innerHTML = `
-  <img src="${`https://image.tmdb.org/t/p/w500` + data.poster_path}" alt="">
+  <img src="${`https://image.tmdb.org/t/p/w500` + data.poster_path}" alt="" class="image-fluid">
   <p>${data.title}</p>
   `
-        }
-        );
 
+  let hero_main = document.getElementById("hero-poster")
+        hero_main.innerHTML = `
+        <img src=""${`https://image.tmdb.org/t/p/w500` + data.poster_path}"" alt=""> `
+
+});
+
+        
 
 
 
 
 </script>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-    crossorigin="anonymous"></script>
+
 
 </html>
