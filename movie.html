@@ -79,7 +79,7 @@ function showpage(data){
             hero_details.innerHTML = `
   <h1 class="py-2">🎬 ${data.title}</h1>
       <h5>${data.genres.map((ele)=> ele.name)}</h5>
-    <p class="m-0 p-0"> <b> 📆${data.release_date}</b> || <b class="text-danger">🔥${data.popularity}</b></p>
+    <p class="m-0 p-0"> <b> 📆${data.release_date}</b> || <b class="btn btn-outline-danger btn-sm">🔥${data.popularity}</b></p>
     <div class="container my-3"></div>
     <h4><b>⭐ Overview</b></h4>
     <p class="pe-lg-5 pe-sm-1">${data.overview}</p>
