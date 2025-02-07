@@ -12,19 +12,19 @@
 
 <body>
     <div id="containerx" class="container-fluid">
-        <div id="hero">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-4 col-6 border " id="hero-poster">
-                        <img src="" alt="">
-                        hii
-                    </div>
-                    <div class="col-lg-8 col-6 border">
-                        hoooo
-                    </div>
+       <div id="hero">
+        <div class="container text-white">
+            <div class="row">
+                <div class="col-lg-4 col-md-12 col-sm-12 " id="hero-poster">
+                  
+         
+                </div>
+                <div class="col-lg-8 col-md-12 col-sm-12 px-5 d-flex justify-content-center flex-column align-content-center" id="details">
+                    
                 </div>
             </div>
         </div>
+    </div>
     </div>
 
 </body>
@@ -39,6 +39,10 @@
     let m_epoint = `movie/${+m_id}`;
     let movie_url = b_url + m_epoint + key;
 
+    let hero_img = document.getElementById("hero-poster")
+    let hero_details = document.getElementById("details")
+
+
     fetch(movie_url)
         .then((res) => {
             return res.json();
@@ -46,23 +50,43 @@
         .then((data) => {
             console.log(data);
 
+        showpage(data)
+});
+
+function showpage(data){
+    hero_img.innerHTML = ""
+   
 
 //             let main = document.getElementById("containerx").innerHTML = `
 //     <div class="container z-3" style="height: 80vh; background: url(${`https://image.tmdb.org/t/p/w1280` + data.backdrop_path}),linear-gradient(to right, rgba(10.5, 52.5, 94.5, 1) calc((50vw - 170px) - 340px), rgba(10.5, 52.5, 94.5, 0.84) 50%, rgba(10.5, 52.5, 94.5, 0.84) 100%);  background-repeat: repeat;  background-blend-mode:overlay;"  >
 //     </div>
 //   `
 
-            let hero_img = document.getElementById("hero")
+  let main = document.getElementById("containerx")
+
+  main.style.background = `url(https://image.tmdb.org/t/p/w1280${data.backdrop_path}),linear-gradient(to right, rgba(10.5, 52.5, 94.5, 1) calc((50vw - 170px) - 340px), rgba(10.5, 52.5, 94.5, 0.84) 50%, rgba(10.5, 52.5, 94.5, 0.84) 100%)`
+  main.style.backgroundRepeat ="repeat"
+  main.style.backgroundBlendMode ="overlay"
+  main.style.backgroundPosition ="center"
+  main.style.height ="65vh"
+  main.style.backdropFilter = "blur(10px)";
+          
             hero_img.innerHTML = `
-  <img src="${`https://image.tmdb.org/t/p/w500` + data.poster_path}" alt="" class="image-fluid">
-  <p>${data.title}</p>
+  <img src="${`https://image.tmdb.org/t/p/w342` + data.poster_path}" alt="" class="image-fluid rounded rounded-5">
   `
+         hero_details.innerHTML = ""
 
-  let hero_main = document.getElementById("hero-poster")
-        hero_main.innerHTML = `
-        <img src=""${`https://image.tmdb.org/t/p/w500` + data.poster_path}"" alt=""> `
-
-});
+            hero_details.innerHTML = `
+  <h1 class="py-2">🎬 ${data.title}</h1>
+      <h5>${data.genres.map((ele)=> ele.name)}</h5>
+    <p class="m-0 p-0"> <b> 📆${data.release_date}</b> || <b class="text-danger">🔥${data.popularity}</b></p>
+    <div class="container my-3"></div>
+    <h4><b>⭐ Overview</b></h4>
+    <p class="pe-lg-5 pe-sm-1">${data.overview}</p>
+    
+ 
+  `
+}
 
         
 
