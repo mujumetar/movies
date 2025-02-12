@@ -15,7 +15,7 @@
        <div id="hero">
         <div class="container text-white">
             <div class="row">
-                <div class="col-lg-4 col-md-12 col-sm-12 " id="hero-poster">
+                <div class="col-lg-4 col-md-12 col-sm-12" id="hero-poster">
                   
          
                 </div>
@@ -40,6 +40,7 @@
     let movie_url = b_url + m_epoint + key;
 
     let hero_img = document.getElementById("hero-poster")
+    let hero = document.getElementById("hero")
     let hero_details = document.getElementById("details")
 
 
@@ -69,10 +70,10 @@ function showpage(data){
   main.style.backgroundBlendMode ="overlay"
   main.style.backgroundPosition ="center"
   main.style.height ="fit-content"
-  main.style.backdropFilter = "blur(10px)";
+  hero.style.backdropFilter = "blur(6px)";
           
             hero_img.innerHTML = `
-  <img src="${`https://image.tmdb.org/t/p/w342` + data.poster_path}" alt="" class="image-fluid rounded rounded-5">
+  <img src="${`https://image.tmdb.org/t/p/w342` + data.poster_path}" alt="" class="image-fluid  img-sm-size rounded rounded-5">
   `
          hero_details.innerHTML = ""
 
@@ -81,7 +82,8 @@ function showpage(data){
       <h5>${data.genres.map((ele)=> ele.name)}</h5>
     <p class="m-0 p-0"> <b> 📆${data.release_date}</b> || <b class="btn btn-outline-danger btn-sm">🔥${data.popularity}</b></p>
     <div class="container my-3"></div>
-    <h4><b>⭐ Overview</b></h4>
+    <p class="mono">"${data.tagline}"</p>
+    <h4><b>Overview</b></h4>
     <p class="pe-lg-5 pe-sm-1">${data.overview}</p>
     
  

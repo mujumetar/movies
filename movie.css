@@ -24,6 +24,16 @@ body {
   .container, .container-lg, .container-md, .container-sm, .container-xl {
       max-width: 100% !important;
   }
+
+  
+
+
+}
+
+@media (max-width: 991px){
+.img-sm-size{
+  width: 80%;
+}
 }
 
 @media (min-width: 1400px) {
@@ -39,3 +49,8 @@ body {
   padding: 20px;
   flex-direction: column;
 }
+
+.mono{
+  color: gainsboro;
+}
+

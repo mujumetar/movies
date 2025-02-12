@@ -339,7 +339,7 @@ li {
 
 @media (max-width: 960px) {
   .showcase {
-    height: 100vh;
+    height: fit-content;
   }
 
   .hide-sm {
