@@ -76,3 +76,9 @@ body {
 .containerx {
   height: 50vh;
 }
+
+.slide-img {
+  width: 100%;
+  height: 400px;
+
+}

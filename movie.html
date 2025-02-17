@@ -29,7 +29,7 @@
         </div>
     </div>
 
-    <div class="container py-1">
+    <div class="container-fluid px-0">
         <div class="swiper mySwiper">
             <div class="swiper-wrapper" id="sweep_slide">
                 
@@ -134,7 +134,7 @@
                  dt.map((ele) => {
                     document.getElementById("sweep_slide").innerHTML += `
                     <div class="swiper-slide">
-                        <img src=${img_url+ele.file_path} alt=""/>
+                        <img class="slide-img img-fluid" src=${img_url+ele.file_path} alt=""/>
                         </div>
                     `
                 console.log(img_url+ele.file_path);
