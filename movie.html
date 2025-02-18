@@ -28,7 +28,7 @@
         </div>
     </div>
 
-    <div class="container-fluid cont px-0">
+    <div class="container-fluid cont px-0 rounded-5">
         <!-- <div class="container">
             <h2>scenes</h2>
         </div> -->
@@ -37,6 +37,22 @@
 
             </div>
             <div class="swiper-pagination"></div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row" id="trailer">
+            <div class="col-lg-3 col-md-6 col-6">
+                <div class="card">
+                    <video src="" class="card-img-top">
+                        <source src="">
+                    </video>
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -55,8 +71,7 @@
     let m_epoint = `movie/${+m_id}`;
     let movie_url = b_url + m_epoint + key + `&append_to_response=credits`;
 
-    // https://api.themoviedb.org/3/movie/206647?api_key=989e5b3786a1011309d985449bb65c5d&append_to_response=videos&append_to_response=credits
-
+    let trail_url = `https://api.themoviedb.org/3/movie/206647?api_key=989e5b3786a1011309d985449bb65c5d&append_to_response=videos`
     let hero_img = document.getElementById("hero-poster");
     let hero = document.getElementById("hero");
     let hero_details = document.getElementById("details");
@@ -105,7 +120,6 @@
     // https://api.themoviedb.org/3/movie/1196943/images
 
     let slide_url = b_url + m_epoint + "/images" + key;
-    console.log(slide_url);
 
     sliders(slide_url);
     function sliders(slide_url) {
@@ -127,8 +141,19 @@
                         <img class="slide-img img-fluid" src=${img_url + ele.file_path
                 } alt=""/>
                         </div>`;
-            console.log(img_url + ele.file_path);
+            
         });
+    }
+
+    function trailer_show(trail_url) {
+        fetch(trail_url)
+            .then((res) => {
+                return res.json();
+            })
+            .then((data) => {
+                console.log(data);
+                // showtrail(data);
+            });
     }
 
     var swiper = new Swiper(".mySwiper", {
