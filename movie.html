@@ -18,7 +18,6 @@
                 <div class="row">
                     <div class="col-lg-4 col-md-12 col-sm-12" id="hero-poster">
 
-
                     </div>
                     <div class="col-lg-8 col-md-12 col-sm-12 px-5 d-flex justify-content-center flex-column align-content-center"
                         id="details">
@@ -29,10 +28,10 @@
         </div>
     </div>
 
-    <div class="container-fluid px-0">
+    <div class="container-fluid cont px-0">
         <div class="swiper mySwiper">
             <div class="swiper-wrapper" id="sweep_slide">
-                
+
             </div>
             <div class="swiper-pagination"></div>
         </div>
@@ -41,81 +40,76 @@
 </body>
 
 <script src="index.js"></script>
+<script src="movie.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
     crossorigin="anonymous"></script>
 <script>
-    let img_url = "https://image.tmdb.org/t/p/original"
+    let img_url = "https://image.tmdb.org/t/p/original";
     let m_id = JSON.parse(localStorage.getItem("each"));
     console.log(m_id);
     let m_epoint = `movie/${+m_id}`;
-    let movie_url = b_url + m_epoint  + key +`&append_to_response=credits`;
+    let movie_url = b_url + m_epoint + key + `&append_to_response=credits`;
 
     // https://api.themoviedb.org/3/movie/206647?api_key=989e5b3786a1011309d985449bb65c5d&append_to_response=videos&append_to_response=credits
 
-    let hero_img = document.getElementById("hero-poster")
-    let hero = document.getElementById("hero")
-    let hero_details = document.getElementById("details")
+    let hero_img = document.getElementById("hero-poster");
+    let hero = document.getElementById("hero");
+    let hero_details = document.getElementById("details");
 
-    let credit_Url = 
-
-
-    fetch(movie_url)
+    let credit_Url = fetch(movie_url)
         .then((res) => {
             return res.json();
         })
         .then((data) => {
             console.log(data);
 
-            showpage(data)
+            showpage(data);
         });
 
     function showpage(data) {
-        hero_img.innerHTML = ""
-
+        hero_img.innerHTML = "";
 
         //             let main = document.getElementById("containerx").innerHTML = `
         //     <div class="container z-3" style="height: 80vh; background: url(${`https://image.tmdb.org/t/p/w1280` + data.backdrop_path}),linear-gradient(to right, rgba(10.5, 52.5, 94.5, 1) calc((50vw - 170px) - 340px), rgba(10.5, 52.5, 94.5, 0.84) 50%, rgba(10.5, 52.5, 94.5, 0.84) 100%);  background-repeat: repeat;  background-blend-mode:overlay;"  >
         //     </div>
         //   `
 
-        let main = document.getElementById("containerx")
+        let main = document.getElementById("containerx");
 
-        main.style.background = `url(https://image.tmdb.org/t/p/w1280${data.backdrop_path}),linear-gradient(to right, rgba(10.5, 52.5, 94.5, 1) calc((50vw - 170px) - 340px), rgba(10.5, 52.5, 94.5, 0.84) 50%, rgba(10.5, 52.5, 94.5, 0.84) 100%)`
-        main.style.backgroundRepeat = "repeat"
-        main.style.backgroundBlendMode = "overlay"
-        main.style.backgroundPosition = "center"
-        main.style.height = "fit-content"
+        main.style.background = `url(https://image.tmdb.org/t/p/w1280${data.backdrop_path}),linear-gradient(to right, rgba(10.5, 52.5, 94.5, 1) calc((50vw - 170px) - 340px), rgba(10.5, 52.5, 94.5, 0.84) 50%, rgba(10.5, 52.5, 94.5, 0.84) 100%)`;
+        main.style.backgroundRepeat = "repeat";
+        main.style.backgroundBlendMode = "overlay";
+        main.style.backgroundPosition = "center";
+        main.style.height = "fit-content";
         hero.style.backdropFilter = "blur(6px)";
 
         hero_img.innerHTML = `
-  <img src="${`https://image.tmdb.org/t/p/w342` + data.poster_path}" alt="" class="image-fluid  img-sm-size rounded rounded-5">
-  `
-        hero_details.innerHTML = ""
+  <img src="${`https://image.tmdb.org/t/p/w342` + data.poster_path
+            }" alt="" class="image-fluid  img-sm-size rounded rounded-5">
+  `;
+        hero_details.innerHTML = "";
 
         hero_details.innerHTML = `
   <h1 class="py-2">🎬 ${data.title}</h1>
       <h5>${data.genres.map((ele) => ele.name)}</h5>
-    <p class="m-0 p-0"> <b> 📆${data.release_date}</b> || <b class="btn btn-outline-danger btn-sm">🔥${data.popularity}</b></p>
+    <p class="m-0 p-0"> <b> 📆${data.release_date
+            }</b> || <b class="btn btn-outline-danger btn-sm">🔥${data.popularity
+            }</b></p>
     <div class="container my-3"></div>
     <p class="mono">"${data.tagline}"</p>
     <h4><b>Overview</b></h4>
     <p class="pe-lg-5 pe-sm-1">${data.overview}</p>
-    `
-
-
-
-
+    `;
     }
 
     // https://api.themoviedb.org/3/movie/1196943/images
 
     let slide_url = b_url + m_epoint + "/images" + key;
-    console.log(slide_url)
+    console.log(slide_url);
 
-
-    sliders(slide_url)
+    sliders(slide_url);
     function sliders(slide_url) {
         fetch(slide_url)
             .then((res) => {
@@ -124,26 +118,21 @@
             .then((data) => {
                 console.log(data.backdrops);
 
-                showslide(data.backdrops)
-
+                showslide(data.backdrops);
             });
     }
-      function showslide(dt){
-        // document.getElementById("sweep_slide").innerHTML = ""
+    function showslide(dt) {
 
-                 dt.map((ele) => {
-                    document.getElementById("sweep_slide").innerHTML += `
+        dt.map((ele) => {
+            document.getElementById("sweep_slide").innerHTML += `
                     <div class="swiper-slide">
-                        <img class="slide-img img-fluid" src=${img_url+ele.file_path} alt=""/>
-                        </div>
-                    `
-                console.log(img_url+ele.file_path);
-                 })
-                }
+                        <img class="slide-img img-fluid" src=${img_url + ele.file_path
+                } alt=""/>
+                        </div>`;
+            console.log(img_url + ele.file_path);
+        });
+    }
 
-</script>
-
-<script>
     var swiper = new Swiper(".mySwiper", {
         loop: true,
         keyboard: {
@@ -158,8 +147,7 @@
             dynamicBullets: true,
         },
     });
+
 </script>
-
-
 
 </html>
