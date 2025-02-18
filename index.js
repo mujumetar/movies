@@ -52,7 +52,7 @@ function showall(data) {
   display.innerHTML = " ";
   data.map((ele) => {
     display.innerHTML += `
-          <div class="col-lg-3 col-md-6 col-6" data-aos="fade-up" data-aos-duration="500" data-aos-anchor-placement="center-center">
+          <div class="col-lg-3 col-md-6 col-6" data-aos="fade-up" data-aos-duration="500" >
           <div class="card p-1 p-sm-3 bg-dark text-white" style="">
           <img src="https://image.tmdb.org/t/p/w500${
             ele.poster_path
