@@ -35,7 +35,7 @@ function changePage(p) {
 
 function pages(page) {
   document.getElementById("pagin").innerHTML = `
-       <ul class="pagination mx-auto" style="width:fit-content">
+       <ul class="pagination mx-auto" style="width:fit-content" data-aos="fade-up" data-aos-duration="500">
        <li class="page-item"><a class="page-link" onclick="changePage(${
          page - 1
        })">Prev</a></li>
