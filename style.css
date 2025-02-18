@@ -85,7 +85,7 @@ li {
 .showcase-content {
   position: relative;
   z-index: 2;
-  width: 65%;
+  width: 100%;
   margin: auto;
   background: rgba(0, 0, 0, 0.6);
   box-shadow: inset 80px 80px 150px #000000, inset -80px -80px 150px #000000;
