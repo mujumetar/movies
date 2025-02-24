@@ -20,7 +20,7 @@ function getMovies(api_url) {
       return res.json();
     })
     .then((data) => {
-      console.log(data);
+      // console.log(data);
       showall(data.results);
       pages(data.page);
     });
@@ -30,7 +30,7 @@ genremenu(b_url + genre + key);
 function changePage(p) {
   let page_url = b_url + d_endpoint + key + e_gen + lang + e_page + p;
   getMovies(page_url);
-  console.log(p);
+  // console.log(p);
 }
 
 function pages(page) {
@@ -83,7 +83,7 @@ function genremenu(genres) {
       return res.json();
     })
     .then((data) => {
-      console.log(data.genres);
+      // console.log(data.genres);
       filt(data.genres);
     });
 }
@@ -107,7 +107,7 @@ document.getElementById("search").addEventListener("keyup", function (e) {
       return res.json();
     })
     .then((data) => {
-      console.log(data);
+      // console.log(data);
       showall(data.results);
       pages(data.page);
     });
@@ -125,7 +125,6 @@ function catagory(id) {
 
   localStorage.setItem("fix_genre", JSON.stringify(fix_genre));
   getMovies(g_url);
-
   location.reload();
 }
 
