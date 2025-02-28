@@ -42,7 +42,7 @@
 
     <div class="container">
         <div class="row" id="trailer">
-            <div class="col-lg-3 col-md-6 col-6">
+            <div class="col-lg-3 col-md-6 col-6 trailers">
                 <div class="card">
                     <video src="" class="card-img-top">
                         <source src="">
@@ -71,20 +71,20 @@
     let m_epoint = `movie/${+m_id}`;
     let movie_url = b_url + m_epoint + key + `&append_to_response=credits`;
 
-    let trail_url = `https://api.themoviedb.org/3/movie/206647?api_key=989e5b3786a1011309d985449bb65c5d&append_to_response=videos`
+    let trail_url = `https://api.themoviedb.org/3/movie/${m_id}?api_key=989e5b3786a1011309d985449bb65c5d&append_to_response=videos,credits,images,similar`
     let hero_img = document.getElementById("hero-poster");
     let hero = document.getElementById("hero");
     let hero_details = document.getElementById("details");
 
-    let credit_Url = fetch(movie_url)
-        .then((res) => {
-            return res.json();
-        })
-        .then((data) => {
-            // console.log(data);
+    // let credit_Url = fetch(movie_url)
+    //     .then((res) => {
+    //         return res.json();
+    //     })
+    //     .then((data) => {
+    //         // console.log(data);
 
-            showpage(data);
-        });
+    //         showpage(data);
+    //     });
 
     function showpage(data) {
         hero_img.innerHTML = "";
@@ -121,18 +121,38 @@
 
     let slide_url = b_url + m_epoint + "/images" + key;
 
-    sliders(slide_url);
-    function sliders(slide_url) {
-        fetch(slide_url)
+   function trailer_show(trail_url) {
+        fetch(trail_url)
             .then((res) => {
                 return res.json();
             })
             .then((data) => {
-                // console.log(data.backdrops);
+                console.log(data);
+                console.log(data.videos);
 
-                showslide(data.backdrops);
+                showslide(data.images.backdrops)
             });
     }
+    trailer_show(trail_url)
+
+
+
+
+
+
+
+    // sliders(slide_url);
+    // function sliders(slide_url) {
+    //     fetch(slide_url)
+    //         .then((res) => {
+    //             return res.json();
+    //         })
+    //         .then((data) => {
+    //             // console.log(data.backdrops);
+
+    //             showslide(data.backdrops);
+    //         });
+    // }
     function showslide(dt) {
 
         dt.map((ele) => {
@@ -141,20 +161,11 @@
                         <img class="slide-img img-fluid" src=${img_url + ele.file_path
                 } alt=""/>
                         </div>`;
-            
+
         });
     }
 
-    function trailer_show(trail_url) {
-        fetch(trail_url)
-            .then((res) => {
-                return res.json();
-            })
-            .then((data) => {
-                console.log(data);
-                // showtrail(data);
-            });
-    }
+ 
 
     var swiper = new Swiper(".mySwiper", {
         loop: true,
@@ -170,6 +181,9 @@
             dynamicBullets: true,
         },
     });
+
+
+    
 
 </script>
 
