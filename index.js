@@ -5,7 +5,7 @@ let b_url = `https://api.themoviedb.org/3/`;
 let key = `?api_key=989e5b3786a1011309d985449bb65c5d`;
 let d_endpoint = `discover/movie`;
 let search = "e.target.value";
-let lang = "&la&with_original_languages=hi,ta,ml,tl";
+let lang = "&la&with_original_languages=hi";
 let e_gen = `&with_genres=${fix_genre.join(",")}`;
 let genre = "genre/movie/list";
 let p1 = 1;
