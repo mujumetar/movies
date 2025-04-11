@@ -76,15 +76,15 @@
     let hero = document.getElementById("hero");
     let hero_details = document.getElementById("details");
 
-    // let credit_Url = fetch(movie_url)
-    //     .then((res) => {
-    //         return res.json();
-    //     })
-    //     .then((data) => {
-    //         // console.log(data);
+    let credit_Url = fetch(movie_url)
+        .then((res) => {
+            return res.json();
+        })
+        .then((data) => {
+            // console.log(data);
 
-    //         showpage(data);
-    //     });
+            showpage(data);
+        });
 
     function showpage(data) {
         hero_img.innerHTML = "";
